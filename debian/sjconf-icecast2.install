@@ -1,0 +1,6 @@
+plugins/*.py usr/share/sjconf-icecast2/plugins
+templates/icecast2/icecast.xml etc/sjconf-icecast2/templates/icecast2
+templates/icecast2/relay.xml etc/sjconf-icecast2/templates/icecast2
+templates/icecast2/icecast2 etc/sjconf-icecast2/templates/icecast2
+confs/icecast2.conf etc/sjconf-icecast2/confs
+debian/tmp/usr/share/man

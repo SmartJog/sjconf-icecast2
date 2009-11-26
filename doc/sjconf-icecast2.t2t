@@ -1,0 +1,99 @@
+SJCONF-icecast2
+sjconf-icecast2
+%%mtime
+
+%!target : man
+%!encoding : utf-8
+%!postproc(man): "^(\.TH.*) 1 "  "\1 8 "
+
+= NAME =
+
+sjconf-icecast2 - handle **icecast2**(1) configuration through **sjconf**(8)
+
+= DESCRIPTION =
+
+sjconf is a configuration wrapper that handles global and server specific configuration, deployment and service restart.
+
+= OPTIONS =
+
+Here is the list of options:
+
+: **enable_daemon** //boolean//
+Allow you to enable/disable the icecast2 daemon.
+
+: **hostname**
+DNS name or IP address of the stream.
+
+: **source_password**
+The unencrypted password used by sources to connect to icecast2.
+
+: **relay_password**
+Used in the master server as part of the authentication when a slave requests the list of streams to relay.
+
+: **admin_user**
+User login for admin authentication.
+
+: **admin_password**
+The username/password used for all administration functions.
+
+: **relays** //list//
+List of the activated relays.
+
+
+= RELAYS =
+
+Each relay has its own configuration section, namely **[icecast2:relay:<relay_name>]**, e.g. **[icecast2:relay:foobarstream]**.
+
+Each relay has at least the following options:
+
+:    **server**, **port**, **local_mount**.
+
+
+Those options are optionals:
+
+:    **mount** = /, **on_demand** = 0, **relay_shoutcast_metadata** = 1, **no_yp** = 1.
+
+
+= EXAMPLE =
+
+  **[icecast2]**
+  **enable_daemon = yes**
+  **template = templates/icecast2/icecast.xml**
+  **hostname = mp3.live.tv-radio.com**
+  **source_password = password**
+  **relay_password = password**
+  **admin_user = admin**
+  **admin_password = password**
+  **relays = alfa, arcenciel-128k**
+
+  **[icecast2:relay:agorafm34]**
+  **server = 10.10.30.49**
+  **port = 9318**
+  **mount = /**
+  **local_mount = /agorafm34/all/agorafm34.mp3**
+  **on_demand = 0**
+  **relay_shoutcast_metadata = 1**
+  **no_yp = 1**
+
+  **[icecast2:relay:agorafm-128k]**
+  **server = 10.10.30.49**
+  **port = 9046**
+  **local_mount = /agorafm/all/agorafm-128k.mp3**
+
+  **[icecast2:relay:alfa]**
+  **server = 10.10.30.49**
+  **port = 9348**
+  **local_mount = /alfa/all/alfa.mp3**
+
+  **[icecast2:relay:arcenciel-128k]**
+  **server = 10.10.30.49**
+  **port = 9048**
+  **local_mount = /arcenciel/all/arcenciel-128k.mp3**
+
+= AUTHOR =
+
+The sjconf icecast2 plugin and this manual page have been written by the **SmartJog** company.
+
+= SEE ALSO =
+
+**sjconf**(8), **icecast2**(1).

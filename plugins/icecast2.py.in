@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+
+import sjconf
+
+class Plugin(sjconf.PluginWithTemplate):
+
+    VERSION = '@PACKAGE_VERSION@'
+
+    _relay_def_values = {'mount': '/', 'on_demand': '0', 'relay_shoutcast_metadata': '1', 'no_yp': '1'}
+
+    class ConfSection(sjconf.Conf.ConfSection):
+        def __getitem__(self, key):
+            value = sjconf.Conf.ConfSection.__getitem__(self, key)
+            if key == 'enable_daemon_bool':
+                value = value and 'true' or 'false'
+            return value
+
+    def conf_types(self):
+        return ((self.name(), 'relays', 'list'), (self.name(), 'enable_daemon', 'bool'),)
+
+    def conf_files_path(self):
+        return ('%s/%s/icecast.xml' % (self.sjconf.etc_dir, self.name()),
+                '%s/default/%s' % (self.sjconf.etc_dir, self.name()),)
+
+    def services_to_restart(self):
+        return (self.name(),)
+
+    def services_to_reload(self):
+        return (self.name(),)
+
+    def file_content(self, file_path):
+        if file_path == self.conf_files_path()[0]:
+            content = ''
+            for relay in self.conf[self.name()]['relays_list']:
+                attrs = self.conf['%s:relay:%s' % (self.name(), relay)]
+                for (key, value) in self._relay_def_values.items():
+                    attrs[key] = attrs.get(key, value)
+                content += open('%s/templates/%s/relay.xml' % (self.sjconf.base_dir, self.name())).read() % attrs
+            self.conf[self.name()]['relays_raw'] = content
+        elif file_path == self.conf_files_path()[1]:
+            self.conf[self.name()]['template'] = 'templates/icecast2/icecast2'
+        return sjconf.PluginWithTemplate.file_content(self, file_path)

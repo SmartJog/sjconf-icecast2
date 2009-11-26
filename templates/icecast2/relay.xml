@@ -1,0 +1,10 @@
+    <relay>
+        <server>%(server)s</server>
+        <port>%(port)s</port>
+        <mount>%(mount)s</mount>
+        <local-mount>%(local_mount)s</local-mount>
+        <on-demand>%(on_demand)s</on-demand>
+        <relay-shoutcast-metadata>%(relay_shoutcast_metadata)s</relay-shoutcast-metadata>
+        <no-yp>%(no_yp)s</no-yp>
+    </relay>
+

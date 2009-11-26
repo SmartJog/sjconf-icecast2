@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+PLUGINS='icecast2'
+
+if [ "$1" = 'remove' ]
+then
+	for plugin in $PLUGINS
+	do
+		sjconf --disable-plugin $plugin || true
+		sjconf --uninstall-plugin $plugin || true
+		if [ -e /etc/sjconf-icecast2/templates/$plugin ]; then
+			 sjconf --uninstall-template $plugin || true
+		fi
+		sjconf --uninstall-conf $plugin || true
+	done
+fi
