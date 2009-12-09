@@ -1,4 +1,4 @@
-sjconf-icecast2 (0.1.0~dev-1) unstable; urgency=low
+sjconf-icecast2 (0.1.0-1) unstable; urgency=low
 
   [ Clément Bœsch ]
   * Initial release (Closes: #2509).
@@ -9,4 +9,4 @@ sjconf-icecast2 (0.1.0~dev-1) unstable; urgency=low
   * Added missing ${misc:Depends} to dependencies.
   * Bumped Standards Version to 3.8.3.
 
- -- Gilles Dartiguelongue <gilles.dartiguelongue@smartjog.com>  Wed, 09 Dec 2009 18:47:01 +0100
+ -- Gilles Dartiguelongue <gilles.dartiguelongue@smartjog.com>  Wed, 09 Dec 2009 18:47:53 +0100
