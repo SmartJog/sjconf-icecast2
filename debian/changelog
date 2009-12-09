@@ -1,5 +1,5 @@
 sjconf-icecast2 (0.1.0~dev-1) unstable; urgency=low
 
-  * Initial release.
+  * Initial release (Closes: #2509).
 
  -- Clément Bœsch <clement.boesch@smartjog.com>  Fri, 13 Nov 2009 15:51:56 +0100
