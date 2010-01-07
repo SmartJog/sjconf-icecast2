@@ -36,9 +36,6 @@ User login for admin authentication.
 : **admin_password**
 The username/password used for all administration functions.
 
-: **relays** //list//
-List of the activated relays.
-
 
 = RELAYS =
 
@@ -64,7 +61,6 @@ Those options are optionals:
   **relay_password = password**
   **admin_user = admin**
   **admin_password = password**
-  **relays = alfa, arcenciel-128k**
 
   **[icecast2:relay:agorafm34]**
   **server = 10.10.30.49**

@@ -1,3 +1,7 @@
+Version 0.1.1~dev
+
+	* Remove relay list, closes: #2841.
+
 Version 0.1.0 Released on 2009/12/09
 
 	* Initial release, closes: #2509.

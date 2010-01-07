@@ -16,7 +16,7 @@ class Plugin(sjconf.PluginWithTemplate):
             return value
 
     def conf_types(self):
-        return ((self.name(), 'relays', 'list'), (self.name(), 'enable_daemon', 'bool'),)
+        return ((self.name(), 'enable_daemon', 'bool'),)
 
     def conf_files_path(self):
         return ('%s/%s/icecast.xml' % (self.sjconf.etc_dir, self.name()),
@@ -30,13 +30,13 @@ class Plugin(sjconf.PluginWithTemplate):
 
     def file_content(self, file_path):
         if file_path == self.conf_files_path()[0]:
-            content = ''
-            for relay in self.conf[self.name()]['relays_list']:
-                attrs = self.conf['%s:relay:%s' % (self.name(), relay)]
-                for (key, value) in self._relay_def_values.items():
-                    attrs[key] = attrs.get(key, value)
-                content += open('%s/templates/%s/relay.xml' % (self.sjconf.base_dir, self.name())).read() % attrs
-            self.conf[self.name()]['relays_raw'] = content
+            relays_raw = ''
+            for (config_key, attrs) in self.conf.items():
+                if config_key.startswith('%s:relay:' % self.name()):
+                    for (key, value) in self._relay_def_values.items():
+                        attrs[key] = attrs.get(key, value)
+                    relays_raw += open('%s/templates/%s/relay.xml' % (self.sjconf.base_dir, self.name())).read() % attrs
+            self.conf[self.name()]['relays_raw'] = relays_raw
         elif file_path == self.conf_files_path()[1]:
             self.conf[self.name()]['template'] = 'templates/icecast2/icecast2'
         return sjconf.PluginWithTemplate.file_content(self, file_path)
