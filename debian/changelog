@@ -1,8 +1,9 @@
-sjconf-icecast2 (0.1.1~dev-1) unstable; urgency=low
+sjconf-icecast2 (0.1.1-1) unstable; urgency=low
 
   * New upstream release, closes: #2841.
+  * Added myself to Uploaders.
 
- -- Clément Bœsch <clement.boesch@smartjog.com>  Thu, 24 Dec 2009 09:43:50 +0100
+ -- Nicolas Noirbent <nicolas.noirbent@smartjog.com>  Tue, 12 Jan 2010 15:32:33 +0100
 
 sjconf-icecast2 (0.1.0-1) unstable; urgency=low
 
