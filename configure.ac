@@ -7,6 +7,7 @@ AC_PREREQ(2.59)
 AM_INIT_AUTOMAKE([foreign])
 
 AC_PROG_SJCONF
+AC_PATH_PROG(TXT2TAGS, txt2tags)
 
 AC_CONFIG_FILES([Makefile \
                  doc/Makefile \

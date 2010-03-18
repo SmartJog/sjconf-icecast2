@@ -2,7 +2,7 @@ sjconf-icecast2 (0.2.0~dev-1) unstable; urgency=low
 
   * New upstream release, closes: #3023, #3025.
 
- -- Clément Bœsch <clement.boesch@smartjog.com>  Fri, 19 Mar 2010 15:07:04 +0100
+ -- Rémi Cardona <remi.cardona@smartjog.com>  Fri, 19 Mar 2010 17:38:12 +0100
 
 sjconf-icecast2 (0.1.1-1) unstable; urgency=low
 
