@@ -20,8 +20,8 @@
     <hostname>%(hostname)s</hostname>
 
     <listen-socket>
-        <port>8003</port>
-        <bind-address>0.0.0.0</bind-address>
+        <port>%(port)s</port>
+        <bind-address>%(bind_address)s</bind-address>
     </listen-socket>
 
     <fileserve>1</fileserve>

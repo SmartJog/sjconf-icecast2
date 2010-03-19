@@ -36,6 +36,12 @@ User login for admin authentication.
 : **admin_password**
 The username/password used for all administration functions.
 
+: **port**
+The port to listen.
+
+: **bind_address**
+The bind address for the listen socket.
+
 
 = MOUNTS =
 
