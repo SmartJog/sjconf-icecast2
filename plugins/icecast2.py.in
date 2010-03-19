@@ -7,6 +7,7 @@ class Plugin(sjconf.PluginWithTemplate):
     VERSION = '@PACKAGE_VERSION@'
 
     _relay_def_values = {'mount': '/', 'on_demand': '0', 'relay_shoutcast_metadata': '1', 'no_yp': '1'}
+    _mount_def_values = {}
 
     class ConfSection(sjconf.Conf.ConfSection):
         def __getitem__(self, key):
@@ -30,13 +31,23 @@ class Plugin(sjconf.PluginWithTemplate):
 
     def file_content(self, file_path):
         if file_path == self.conf_files_path()[0]:
-            relays_raw = ''
+            relays_raw, mounts_raw = '', ''
             for (config_key, attrs) in self.conf.items():
+
                 if config_key.startswith('%s:relay:' % self.name()):
                     for (key, value) in self._relay_def_values.items():
                         attrs[key] = attrs.get(key, value)
                     relays_raw += open('%s/templates/%s/relay.xml' % (self.sjconf.base_dir, self.name())).read() % attrs
+
+                elif config_key.startswith('%s:mount:' % self.name()):
+                    attrs['mount_name'] = config_key.split(':', 2)[2]
+                    for (key, value) in self._mount_def_values.items():
+                        attrs[key] = attrs.get(key, value)
+                    mounts_raw += open('%s/templates/%s/mount.xml' % (self.sjconf.base_dir, self.name())).read() % attrs
+
             self.conf[self.name()]['relays_raw'] = relays_raw
+            self.conf[self.name()]['mounts_raw'] = mounts_raw
+
         elif file_path == self.conf_files_path()[1]:
             self.conf[self.name()]['template'] = 'templates/icecast2/icecast2'
         return sjconf.PluginWithTemplate.file_content(self, file_path)

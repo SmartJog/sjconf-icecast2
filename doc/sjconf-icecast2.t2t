@@ -37,6 +37,18 @@ User login for admin authentication.
 The username/password used for all administration functions.
 
 
+= MOUNTS =
+
+Each mount point has its own configuration section, namely **[icecast2:mount:<mount_name>]**, e.g. **[icecast2:mount:/foo.ogg]**.
+
+You have to specify the following options:
+
+:    **username**, **password**.
+
+
+The **mount name** is specified by the section name (see above).
+
+
 = RELAYS =
 
 Each relay has its own configuration section, namely **[icecast2:relay:<relay_name>]**, e.g. **[icecast2:relay:foobarstream]**.
@@ -61,6 +73,10 @@ Those options are optionals:
   **relay_password = password**
   **admin_user = admin**
   **admin_password = password**
+
+  **[icecast2:mount:/vortex]**
+  **username = JohnDoe**
+  **password = Wh04m1**
 
   **[icecast2:relay:agorafm34]**
   **server = 10.10.30.49**

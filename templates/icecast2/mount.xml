@@ -1,0 +1,6 @@
+    <mount>
+        <mount-name>%(mount_name)s</mount-name>
+        <username>%(username)s</username>
+        <password>%(password)s</password>
+    </mount>
+

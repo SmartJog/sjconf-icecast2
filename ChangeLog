@@ -1,3 +1,7 @@
+Version 0.2.0~dev
+
+	* Add mount support, closes: #3023.
+
 Version 0.1.1 Released on 2010/01/12
 
 	* Remove relay list, closes: #2841.

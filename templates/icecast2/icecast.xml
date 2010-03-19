@@ -46,4 +46,6 @@
     </security>
 
 %(relays_raw)s
+%(mounts_raw)s
+
 </icecast>
