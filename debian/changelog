@@ -1,10 +1,10 @@
-sjconf-icecast2 (0.2.0~dev-1) unstable; urgency=low
+sjconf-icecast2 (0.2.0-1) unstable; urgency=low
 
   * New upstream release, closes: #3023, #3025.
   * Update packaging for Lenny.
   * Added myself to Uploaders.
 
- -- Rémi Cardona <remi.cardona@smartjog.com>  Fri, 19 Mar 2010 17:38:12 +0100
+ -- Rémi Cardona <remi.cardona@smartjog.com>  Mon, 26 Apr 2010 15:23:55 +0200
 
 sjconf-icecast2 (0.1.1-1) unstable; urgency=low
 
