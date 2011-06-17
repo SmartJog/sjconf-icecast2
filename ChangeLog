@@ -1,3 +1,7 @@
+Version 0.2.1~dev
+
+	* sjconf-icecast2 now released under the LGPL-2.1.
+
 Version 0.2.0 Released on 2010/04/26
 
 	* Add mount support, closes: #3023.

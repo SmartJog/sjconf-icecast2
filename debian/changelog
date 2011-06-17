@@ -1,3 +1,10 @@
+sjconf-icecast2 (0.2.1~dev-1) unstable; urgency=low
+
+  * New upstream release.
+  * sjconf-icecast2 is now released under the LGPL-2.1.
+
+ -- Gilles Dartiguelongue <gilles.dartiguelongue@smartjog.com>  Fri, 17 Jun 2011 15:02:31 +0200
+
 sjconf-icecast2 (0.2.0-1) unstable; urgency=low
 
   * New upstream release, closes: #3023, #3025.
